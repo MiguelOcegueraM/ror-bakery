@@ -1,2 +1,54 @@
-<h1>Postres#crear</h1>
-<p>Find me in app/views/postres/crear.html.erb</p>
+<form method="POST" action="/postres/insertar" accept-charset="UTF-8" role="form" id="crearpostre" name="crearpostre" enctype="multipart/form-data">
+    <!-- protecccion CSRF-->
+    <%= token_tag nil %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label for="nombre" class="negrita">Nombre:</label>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Pastel de Zanahoria" name="nombre" id="nombre" onload="crearUrlAmigable(this.value);" onkeypress="crearUrlAmigable(this.value);" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio" class="negrita">Precio:</label>
+                        <div>
+                            <input type="text" class="form-control" placeholder="4.50" name="precio" id="precio" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock" class="negrita">Stock:</label>
+                        <div>
+                            <input class="form-control" name="stock" id="stock" type="text" placeholder="40" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="img" class="negrita">Selecciona una imagen:</label>
+                        <div>
+                            <input class="form-control" type="file" name="img" id="img" required>
+                        </div>
+                    </div>    
+
+                    <div class="form-group">
+                        <label for="url" class="negrita">URL:</label>
+                        <div>
+                            <input type="text" class="form-control" name="url" id="url" readonly>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                    <%= link_to 'Cancelar', url_for(:back), class: "btn btn-warning" %>
+ 
+                        <br>
+                        <br>
+
+                </div>
+            </section>
+        </div>
+    </div>

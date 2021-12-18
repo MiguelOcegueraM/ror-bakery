@@ -1,2 +1,17 @@
-<h1>Postres#leer</h1>
-<p>Find me in app/views/postres/leer.html.erb</p>
+<% @postres.each do |postres| %>
+
+    <section class="text-center">
+        <div class="container">
+            <h3 class="jumbotron-heading"><%= postres.nombre %></h3>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="/assets/img/<%= postres.img %>" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
